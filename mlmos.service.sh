@@ -2,8 +2,10 @@
 host="white-carrot"
 # set hostname $host
 # dhclient
+apt install -y git
 
-
+git clone https://github.com/wildProgrammer/mlmos-init-machine.git
+cd mlmos-init-machine
 
 settings="vms/$host/settings.conf"
 
@@ -51,6 +53,8 @@ if [[ $(stat $settings) ]]; then
 
 
     for i in ${to_install[@]}; do
-        apt install $i
+        apt install -y $i
     done;
 fi;
+
+bash ./bootstrap.sh >> /var/log/system-bootstrap.log 2>&1
