@@ -5,8 +5,7 @@ After=network.target
 [Service]
 Type=oneshot
 User=root
-WorkingDirectory=/home/poke/Downloads
-ExecStart=/bin/apt install -y git 
+WorkingDirectory=/home/poke/Downloads 
 ExecStart=/bin/bash mlmos.service.sh
 
 
